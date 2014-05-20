@@ -30,6 +30,7 @@ Sample Use
   # or
   $tn_image->show("tn_sample.png");
 ?>
+```
 
 For more samples see samples/sample.html...
 

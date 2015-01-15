@@ -7,41 +7,37 @@ phpThumbnailer is a simple PHP class for create thumbnails or resize images.
 
 Requirements
 ------------
-GD extension enabled PHP.
+GD extension installed.
 
 Sample Use
 ----------
 ```
 <?php
-  include("class.Thumbnail.php");
-  $tn_image = new Thumbnail("sample.png", 0, 0, 50, 75);
-                        #      |          |  |   |   |
-			#      |          |  |   |   + JPEG Quality (optional)
-			#      |          |  |   +-- Percent (optional)
-		        #      |          |  +-- Maximum height (optional)
-		        #      |          +-- Maximum width (optional)
-			#      +-- Original image filename
+include("class.Thumbnail.php");
+$tn_image = new Thumbnail("sample.png", 0, 0, 50, 75);
 
-  # To show
-  $tn_image->show();
+/**
+ * Parameter order:
+ * 1) Original image filename
+ * 2) Maximum width (optional)
+ * 3) Maximum height (optional)
+ * 4) Percent (optional)
+ * 5) JPEG quality (optional)
+ */
 
-  # To save (it won't show image)
-  $tn_image->save("tn_sample.png");
-  # or
-  $tn_image->show("tn_sample.png");
+/**
+ * To show (output is image resource)
+ */
+$tn_image->show();
+
+/**
+ * To save as a file.
+ */
+$tn_image->save("tn_sample.png");
 ?>
 ```
 
-For more samples see samples/sample.html...
-
-Note
-----
-Version of GD library older than gd-1.6 support GIF format images, and do not
-support PNG images, where versions greather than gd-1.6 support PNG, not GIF.
-
-In order to create thumbnails in JPEG format, you will need to obtain and
-install jpeg-6b library, and then recompile gd to make use of jpeg-6b. You
-will also have to compile PHP with --with-jpeg-dir=/path/to/jpeg-6b.
+For more samples see samples/sample.html file.
 
 Disclaimer
 ----------
